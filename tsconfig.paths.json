@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@containers/*": [
+          "./src/containers/*"
+        ],
+        "@components/*": [
+          "./src/components/*"
+        ],
+        "@hooks/*": [
+          "./src/hooks/*"
+        ],
+        "@types/*": [
+          "./src/types/*"
+        ],
+        "@shared/*": [
+          "./src/shared/*"
+        ],
+        "@api/*": [
+          "./src/api/*"
+        ],
+        "@src/*": [
+          "./src/*"
+        ],
+        "@services/*": [
+          "./src/services/*"
+        ]
+      }
+    }
+  }
