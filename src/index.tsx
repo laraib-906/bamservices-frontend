@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { ToastProvider } from 'react-toast-notifications';
+
 import './index.css';
 import App from './components/app/App';
 import reportWebVitals from './reportWebVitals';
+import store from './redux/store';
+import { BrowserRouter } from 'react-router-dom';
+
 
 ReactDOM.render(
+
   <React.StrictMode>
-    <App />
+      <Provider store={store}>
+          <ToastProvider>
+              <BrowserRouter>
+                  <App />
+              </BrowserRouter>
+
+          </ToastProvider>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
