@@ -1,0 +1,77 @@
+.logo-theme-bg {
+  background: url(../../assert/ban_logo.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-color: #ffcb04;
+  position: absolute;
+  width: 600px;
+  height: 100px;
+  margin-left: -415px;
+  margin-top: 10px;
+}
+
+.logo {
+  width: 160px;
+  height: 120px;
+  padding: 10px 0px 12px 0px;
+  margin-left: 172px;
+  background: url(../../assert/logo.png);
+}
+
+.contact-wrapper {
+  float: right;
+  text-align: right;
+  padding: 10px 0px 10px 0px;
+  color: #777;
+}
+
+.phone {
+  font-size: 24px;
+  color: #333;
+}
+
+@media (max-width: 340px) {
+  .contact-wrapper .phone {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 970px) {
+  .logo {
+    /*padding:10px 0px 12px 0px;
+        margin-left:-15px;*/
+  }
+}
+
+@media (max-width: 760px) {
+  .well {
+    margin: 20px 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo {
+    width: 160px;
+    height: 120px;
+    padding: 10px 0px 12px 0px;
+    background: url(../../assert/logo.png) no-repeat;
+  }
+
+  .logo-theme-bg {
+    background: none;
+  }
+}
+
+@media (max-width: 575px) {
+    .contact-wrapper { width: 100% }
+    .row-contact-wrapper {
+        width: 100%;
+        display: flex;
+        flex: 1;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+  
+  

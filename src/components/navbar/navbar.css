@@ -1,0 +1,24 @@
+.navbar {
+    background: #ffcb04 !important;
+    color: black;
+    margin-top: 10px;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: black !important;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: white !important;
+}
+
+.nav-link i {
+    margin-right: 10px;
+}

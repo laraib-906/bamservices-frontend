@@ -7,9 +7,10 @@ export interface IRouterOptions {
 export interface IRouters {
     id?: number;
     type?: string;
+    name?: string;
     route?: string;
     icon?: string;
     component?: any;
     options?: IRouterOptions;
-    permission: Array<string>;
+    permission?: Array<string>;
 }
