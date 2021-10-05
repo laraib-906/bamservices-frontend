@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
+import Footer from "../../components/footer"
 import { routerArray } from "../../../src/routing/route";
 import { Route, Switch, Redirect, Link } from "react-router-dom";
 import { IRouters } from "../../types/routes";
@@ -36,6 +37,7 @@ function App(props: Props) {
     <div className="App">
       <Header routes={routes} user={props.userData} />
       <Switch>{routes.map((item, index) => mapRouteToJSX(item, index))}</Switch>
+      <Footer/>
     </div>
   );
 }
