@@ -37,7 +37,7 @@ const Home = () => {
                     <div className="row">
                         <div className="col-lg-7 col-md-7 col-sm-6 col-xs-12">
                             <div>
-                                <h3 className="heading">UK's leading mobile SIM distributor</h3>
+                                <h3 className="caps">UK's leading mobile SIM distributor</h3>
                                 <p>
                                     Ayapa is one of the leading mobile product and service distribution firm in the UK since 2010. We are working with all the leading mobile network providers to distribute their products across our platform.
                                 </p>

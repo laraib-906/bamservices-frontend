@@ -7,6 +7,7 @@ import Partners from "../containers/partner";
 import NewsEvents from "../containers/newsEvents";
 import PartnersShop from "../containers/partnerShop";
 import Contact from "../containers/contact";
+import EventDetails from '../containers/newsEvents/eventsDetails';
 
 export let routerArray: Array<IRouters> = [
     {
@@ -15,6 +16,7 @@ export let routerArray: Array<IRouters> = [
         name: 'Home',
         route: '/',
         icon: "",
+        hidden: false,
         component: Home,
         options: {
             exact: true
@@ -27,6 +29,7 @@ export let routerArray: Array<IRouters> = [
         name: 'Services',
         route: '/services',
         icon: "",
+        hidden: false,
         component: Services,
         options: {
             exact: true
@@ -39,6 +42,7 @@ export let routerArray: Array<IRouters> = [
         name: 'Partners',
         route: '/partners',
         icon: "",
+        hidden: false,
         component: Partners,
         options: {
             exact: true
@@ -51,7 +55,21 @@ export let routerArray: Array<IRouters> = [
         name: 'News & Events',
         route: '/news_events',
         icon: "",
+        hidden: false,
         component: NewsEvents,
+        options: {
+            exact: true
+        },
+        permission: ['']
+    },
+    {
+        id: 4,
+        type: 'Route',
+        name: 'News & Events',
+        route: '/news_events/:id',
+        icon: "",
+        hidden: true,
+        component: EventDetails,
         options: {
             exact: true
         },
@@ -63,6 +81,7 @@ export let routerArray: Array<IRouters> = [
         name: 'Partner Shop',
         route: '/partners_shop',
         icon: "",
+        hidden: false,
         component: PartnersShop,
         options: {
             exact: true
@@ -75,6 +94,7 @@ export let routerArray: Array<IRouters> = [
         name: 'Contact Us',
         route: '/contact',
         icon: "",
+        hidden: false,
         component: Contact,
         options: {
             exact: true

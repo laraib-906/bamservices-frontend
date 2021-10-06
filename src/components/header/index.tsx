@@ -14,7 +14,7 @@ interface Props {
 const Header = (props: Props) => {
     return (
         <>
-        <div className="container mt-2">
+        <div className="container">
             <div className="row">
                 <div className="logo-theme-bg"></div>
                 <div className="col-lg-3 col-md-3 col-sm-3 col-xs-10">

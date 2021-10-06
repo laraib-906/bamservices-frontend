@@ -12,25 +12,26 @@ const Partners = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <h3 className="heading caps">
+                            <h3 className="caps">
                                 NETWORK PARTNERS
                             </h3>
-                            <br />
                             <p>
-                                With over 12 years experience delivering our unique 'Fully managed SIM distribution model', we have a true partnership with all the major mobile networks. <br />
-                                <br /> As one of the UK's fastest growing SIM distribution partners, and with several directors previously holding senior management positions within the mobile operators, our relationships mean we have access to the networks at the highest levels.
-
-                                <br /><br />So what does it mean to our reseller partners?
-
-                                <br /> <br />Because we work so closely with the Mobile Networks, we are ideally placed to understand their objectives and how they can be delivered through the retail channel.
-
-
+                                With over 12 years experience delivering our unique 'Fully managed SIM distribution model', we have a true partnership with all the major mobile networks.
+                            </p>
+                            <p>
+                            As one of the UK's fastest growing SIM distribution partners, and with several directors previously holding senior management positions within the mobile operators, our relationships mean we have access to the networks at the highest levels.
+                            </p>
+                            <p>
+                                So what does it mean to our reseller partners?
+                            </p>
+                            <p>
+                                Because we work so closely with the Mobile Networks, we are ideally placed to understand their objectives and how they can be delivered through the retail channel.
                             </p>
                             <img src={p1} alt="partner" className="img-fluid" />
                         </div>
                         <hr />
                         <div className="col-md-12">
-                            <h3 className="heading caps">
+                            <h3 className="caps">
                                 RETAIL PARTNERS
                             </h3>
                             <br />
