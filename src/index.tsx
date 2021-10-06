@@ -7,7 +7,7 @@ import './index.css';
 import App from './components/app/App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 
 ReactDOM.render(
@@ -15,10 +15,9 @@ ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
           <ToastProvider>
-              <BrowserRouter>
+              <HashRouter>
                   <App />
-              </BrowserRouter>
-
+              </HashRouter>
           </ToastProvider>
       </Provider>
   </React.StrictMode>,
