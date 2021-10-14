@@ -37,7 +37,7 @@ const PartnersShop = () => {
 
             <h1>
               <span className="news-title">
-                <a href="javascript:;">
+                <a href="/#" onClick={(ev) => { ev.preventDefault(); }}>
                   Business Development Managers (BDM){" "}
                 </a>
               </span>

@@ -19,7 +19,8 @@ const NewsEvents = () => {
     setEventsData(eventsMockData);
   }, []);
 
-  function handleEventDetailsRoute(event: any) {
+  function handleEventDetailsRoute(ev: any, event: any) {
+    ev.preventDefault();
     router.push(`/news_events/${event.id}`)
   }
 
@@ -52,9 +53,9 @@ const NewsEvents = () => {
                   />
                   <span className="news-title">
                     <a
-                      href=""
+                      href="/#"
                       className="more event-logger"
-                      onClick={() => handleEventDetailsRoute(event)}
+                      onClick={(e) => handleEventDetailsRoute(e, event)}
                     >
                       {event.title}
                     </a>
@@ -63,9 +64,9 @@ const NewsEvents = () => {
                   {event.details}
                   <br />
                   <a
-                    href=""
+                    href="/#"
                     className="more cursor"
-                    onClick={() => handleEventDetailsRoute(event)}
+                    onClick={(e) => handleEventDetailsRoute(e, event)}
                   >
                     ...More
                   </a>

@@ -19,7 +19,7 @@ const Header = (props: Props) => {
             <div className="row">
                 <div className="logo-theme-bg bg-white"></div>
                 <div className="col-lg-3 col-md-3 col-sm-3 col-xs-10">
-                     <a href="">
+                     <a href="/#" onClick={(ev) => { ev.preventDefault(); }}>
                          <img src={Logo} alt="" className="logo img-fluid" />
                         {/* <div className="logo img-fluid"></div> */}
                      </a>
@@ -33,7 +33,7 @@ const Header = (props: Props) => {
                                 sales@ayapa.co.uk
                             </div>
                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-6">
-                                <a href="">
+                                <a href="/#" onClick={(ev) => { ev.preventDefault(); }}>
                                     <img src={GetSimImage}
                                         alt=""
                                         title="Order your free SIM"  

@@ -18,10 +18,10 @@ const EventDetails = () => {
   useEffect(() => {
     const data = eventsMockData.find((d) => d.id === parseInt(query.id, 10));
     setStateData(data?.more as IEventDetails);
-    console.log(data?.more);
   }, [query.id]);
 
-  function navigateback() {
+  function navigateback(event: any) {
+    event.preventDefault();
     router.push("/news_events");
   }
 
@@ -32,11 +32,11 @@ const EventDetails = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="breadcrumb">
-                <a href="" className="cursor" onClick={navigateback}>
+                <a href="/#" className="cursor" onClick={navigateback}>
                   News & Events
                 </a>
                 <span className="me-2 ms-2">{">"}</span>
-                <a href="" className="cursor">
+                <a href="/#" className="cursor" onClick={(ev) => { ev.preventDefault(); }}>
                   {stateData.title}
                 </a>
               </div>

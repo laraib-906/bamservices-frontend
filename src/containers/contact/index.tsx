@@ -45,7 +45,7 @@ const Contact = () => {
           </div>
           <div className="col-lg-9 col-md-9 col-sm-6 col-xs-12">
             <h3>Quick contact</h3>
-            <form id="contact-form" method="post" action="" role="form">
+            <form id="contact-form" method="post" action="">
               <div className="col-lg-9 mb-3">
                 <label
                   htmlFor="exampleFormControlInput1"
@@ -145,7 +145,7 @@ const Contact = () => {
                     <div style={{ width: "304px", height: "78px" }}>
                       <div>
                         <iframe
-                          title="RECAPTCHA"
+                          title="reCAPTCHA"
                           src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeiyeUZAAAAAGwrdwZ_bLGj8I8s3yEkLGd2j0rC&amp;co=aHR0cHM6Ly93d3cuYXlhcGEuY28udWs6NDQz&amp;hl=en&amp;v=-TriQeni1Ls-Mdq_ssN2cUL5&amp;size=normal&amp;cb=ji1gfkq6n26z"
                           width="304"
                           height="78"
@@ -170,7 +170,6 @@ const Contact = () => {
                         }}
                       ></textarea>
                     </div>
-                    <iframe style={{ display: "none" }}></iframe>
                   </div>
                   <input
                     className="form-control d-none hide"

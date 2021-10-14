@@ -10,7 +10,8 @@ const Navbar = ({ routes }: Props) => {
   const router = useRouter();
   const navRoutes = routes.filter((item) => !item.hidden);
 
-  const handleRouter = (routeItem: IRouters) => {
+  const handleRouter = (ev: any, routeItem: IRouters) => {
+    ev.preventDefault();
     router.push(routeItem.route as string);
   };
 
@@ -34,9 +35,10 @@ const Navbar = ({ routes }: Props) => {
               {navRoutes.map((route, index) => (
                 <li className="nav-item" key={index}>
                   <a
+                    href="/#"
                     className="nav-link p-1"
                     aria-current="page"
-                    onClick={() => handleRouter(route)}
+                    onClick={(ev) => handleRouter(ev, route)}
                   >
                     {route.name}
                   </a>
@@ -44,9 +46,11 @@ const Navbar = ({ routes }: Props) => {
               ))}
               <li className="nav-item">
                 <a
+                  href="/#"
                   className="nav-link p-1"
                   aria-current="page"
                   target="_blank"
+                  onClick={(ev) => { ev.preventDefault(); }}
                 >
                   <i className="fa fa-user"></i>
                   <span>my ayapa</span>
