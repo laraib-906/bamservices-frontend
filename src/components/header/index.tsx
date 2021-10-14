@@ -4,6 +4,7 @@ import { IUser } from '../../types/user';
 import "./header.css";
 
 import GetSimImage from '../../assert/get_sim.png';
+import Logo from '../../assert/logo.jpeg';
 import Navbar from '../../components/navbar';
 
 interface Props {
@@ -14,12 +15,13 @@ interface Props {
 const Header = (props: Props) => {
     return (
         <>
-        <div className="container">
+        <div className="container bg-white">
             <div className="row">
-                <div className="logo-theme-bg"></div>
+                <div className="logo-theme-bg bg-white"></div>
                 <div className="col-lg-3 col-md-3 col-sm-3 col-xs-10">
-                     <a href="#">
-                        <div className="logo"></div>
+                     <a href="">
+                         <img src={Logo} alt="" className="logo img-fluid" />
+                        {/* <div className="logo img-fluid"></div> */}
                      </a>
                 </div>
                 <div className="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -31,9 +33,9 @@ const Header = (props: Props) => {
                                 sales@ayapa.co.uk
                             </div>
                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-6">
-                                <a href="#">
-                                    <img src={GetSimImage} 
-                                        alt="Order you free sim" 
+                                <a href="">
+                                    <img src={GetSimImage}
+                                        alt=""
                                         title="Order your free SIM"  
                                         style={{
                                             border: 0,

@@ -42,7 +42,7 @@ const Services = () => {
                         <br />
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-12 col-lxs-12 glyph-large"> 
-                        <img src={s1} className="img-fluid" alt="Ayapa Services Limited" style={{ marginTop:24}} />
+                        <img src={s1} className="img-fluid" alt=""  style={{ marginTop:24}} />
                     </div>
                 </div>
             </div>

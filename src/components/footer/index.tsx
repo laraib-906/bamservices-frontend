@@ -10,9 +10,6 @@ const Footer = () => {
             © 2010-2021 Ayapa Services Limited.
             <br />
             All rights reserved.
-            {/* <a href="./ayapa-services-sitemap.php">Sitemap</a>
-            <a href="./ayapa-services-terms.php">Terms & Conditons</a>
-            <a href="./ayapa-services-privacy-policy.php">Privacy Policy</a> */}
           </div>
           <div
             className="col-lg-6 col-md-6 col-sm-6 col-xs-12"

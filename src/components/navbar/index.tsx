@@ -1,5 +1,4 @@
 import useRouter from "../../hooks/useRouter";
-import React, { useEffect, useState } from "react";
 import { IRouters } from "../../types/routes";
 import "./navbar.css";
 
@@ -9,12 +8,7 @@ interface Props {
 
 const Navbar = ({ routes }: Props) => {
   const router = useRouter();
-  const [navRoutes, setNavRoutes] = useState<IRouters[]>([]);
-
-  useEffect(() => {
-    const filteredRoutes = routes.filter((item) => !item.hidden);
-    setNavRoutes(filteredRoutes);
-  })
+  const navRoutes = routes.filter((item) => !item.hidden);
 
   const handleRouter = (routeItem: IRouters) => {
     router.push(routeItem.route as string);

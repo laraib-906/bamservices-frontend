@@ -37,7 +37,7 @@ const PartnersShop = () => {
 
             <h1>
               <span className="news-title">
-                <a href="#">
+                <a href="javascript:;">
                   Business Development Managers (BDM){" "}
                 </a>
               </span>

@@ -1,5 +1,3 @@
-import { hasAccess } from "../../src/services/security.service";
-import { IUser } from "./../types/user";
 import { IRouters } from "../types/routes";
 import Home from "../containers/home";
 import Services from "../containers/services";

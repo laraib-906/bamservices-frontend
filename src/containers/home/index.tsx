@@ -51,14 +51,14 @@ const Home = () => {
                         </div>
                         <div className="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                             <div className="home-right-container">
-                                <img src={corpCity} alt="corporation city" className="img-fluid home-right-img"/>
+                                <img src={corpCity}   className="img-fluid home-right-img" alt="" />
                             </div>
                         </div>
                     </div>
                     <hr className="mt-5"/>
                     <div className="row">
                         <div className="col-md-12">
-                            <img src={simServies} alt="sim services" className="img-fluid"/>
+                            <img src={simServies} alt="" className="img-fluid"/>
                         </div>
                     </div>
                     <div className="row mt-5">

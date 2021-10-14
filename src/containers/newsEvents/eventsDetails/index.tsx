@@ -19,7 +19,7 @@ const EventDetails = () => {
     const data = eventsMockData.find((d) => d.id === parseInt(query.id, 10));
     setStateData(data?.more as IEventDetails);
     console.log(data?.more);
-  }, []);
+  }, [query.id]);
 
   function navigateback() {
     router.push("/news_events");
@@ -32,11 +32,11 @@ const EventDetails = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="breadcrumb">
-                <a className="cursor" onClick={navigateback}>
+                <a href="" className="cursor" onClick={navigateback}>
                   News & Events
                 </a>
                 <span className="me-2 ms-2">{">"}</span>
-                <a href="#" className="cursor">
+                <a href="" className="cursor">
                   {stateData.title}
                 </a>
               </div>
@@ -58,7 +58,7 @@ const EventDetails = () => {
             {stateData.gallery?.map((image, idx) => (
               <div className="col-xs-12 col-md-6" key={idx}>
                 <span className="thumbnail">
-                  <img src={image.img} alt="gallery Image" className="img-fluid" />
+                  <img src={image.img} alt="" className="img-fluid" />
                 </span>
               </div>
             ))}

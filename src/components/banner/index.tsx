@@ -16,7 +16,7 @@ const Banner = (props: Props) => {
   return (
     <>
       {props.bannerType === "banner" ? (
-        <img src={props.bannerImage} className="image-banner img-responsive" alt="Banner Image"/>
+        <img src={props.bannerImage} className="image-banner img-responsive" alt="" />
       ) : (
         <SimpleImageSlider 
             width={"100%"} 

@@ -23,10 +23,13 @@
 	}*/
 
 .logo {
-  width: 160px;
+  /* width: 160px; */
   height: 120px;
   padding: 10px 0px 12px 0px;
-  background: url(../assert/logo.png) no-repeat;
+  /* background: url(../assert/logo.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
 }
 
 header .login-container {
@@ -442,10 +445,9 @@ header .contact-wrapper .glyphicon-earphone {
 
 @media (max-width: 980px) {
   .logo {
-    width: 160px;
+    /* width: 160px; */
     height: 120px;
     padding: 10px 0px 12px 0px;
-    background: url(../assert/logo.png) no-repeat;
   }
 
   .logo-theme-bg {

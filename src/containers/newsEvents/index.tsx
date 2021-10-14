@@ -46,12 +46,13 @@ const NewsEvents = () => {
                 >
                   <img
                     src={event.img}
+                    alt=""
                     className="img-responsive img-text-wrap"
-                    alt="Ayapa Services Limited"
                     title="Ayapa Services Limited"
                   />
                   <span className="news-title">
                     <a
+                      href=""
                       className="more event-logger"
                       onClick={() => handleEventDetailsRoute(event)}
                     >
@@ -62,6 +63,7 @@ const NewsEvents = () => {
                   {event.details}
                   <br />
                   <a
+                    href=""
                     className="more cursor"
                     onClick={() => handleEventDetailsRoute(event)}
                   >
