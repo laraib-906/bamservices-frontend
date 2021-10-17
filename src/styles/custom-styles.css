@@ -1,5 +1,5 @@
 /*!
- Custome styles of Ayapa Services Limited 
+ Custome styles of BAM Services Limited 
 */
 .top-div {
   margin-top: 20px;
@@ -13,9 +13,9 @@
   margin: 0;
 }
 .header-top-bar-left {
-  background-color: #ffcb04;
+  background-color: var(--orangeGolden);
   min-height: 100px;
-  background-image: url(../assert/ban_logo.png);
+  background-image: url(../assert/bam_logo.jpeg);
   background-position: right;
 }
 /*header h2 {
@@ -24,8 +24,11 @@
 
 .logo {
   /* width: 160px; */
-  height: 120px;
-  padding: 10px 0px 12px 0px;
+  height: 80px;
+  /* padding: 0px 0px 12px 0px; */
+  position: absolute;
+  margin-top: 30px;
+
   /* background: url(../assert/logo.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -131,8 +134,8 @@ a.glyphicon-user:hover {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #fff;
-  background-color: #ffcb04 !important;
-  border-color: #ffcb04 #ffcb04 transparent !important;
+  background-color: var(--orangeGolden) !important;
+  border-color: var(--orangeGolden) transparent !important;
   -moz-border-top-colors: none;
   -moz-border-right-colors: none;
   -moz-border-bottom-colors: none;
@@ -153,7 +156,7 @@ a.glyphicon-user:hover {
 }
 
 .navbar-nav > .active > a {
-  background-color: #ffcb04 !important ;
+  background-color: var(--orangeGolden) !important ;
   color: #000 !important;
 }
 
@@ -204,8 +207,8 @@ a.glyphicon-user:hover {
 .btn.btn-hero:hover,
 .btn.btn-hero:focus {
   color: #f5f5f5;
-  background-color: #ffcb04;
-  border-color: #ffcb04;
+  background-color: var(--orangeGolden);
+  border-color: var(--orangeGolden);
   outline: none;
   margin: 20px auto;
 }
@@ -367,7 +370,7 @@ footer {
   border-color: #59b2e6 !important;
 }
 .icon-bg {
-  background-color: #ffcb04;
+  background-color: var(--orangeGolden);
   padding: 10%;
 }
 .icon-bg .circle {
@@ -380,15 +383,16 @@ footer {
   color: #555 !important;
 }
 .logo-theme-bg {
-  background: url(../assert/ban_logo.png);
+  background: url(../assert/bam_logo.jpeg);
   background-position: right;
   background-repeat: no-repeat;
-  background-color: #ffcb04;
+  background-color: var(--orangeGolden);
   position: absolute;
-  width: 600px;
-  height: 100px;
-  margin-left: -585px;
-  margin-top: 10px;
+  width: 410px;
+  height: 160px;
+  background-size: contain;
+  margin-left: -400px;
+  margin-top: -20px;
 }
 
 .warning {

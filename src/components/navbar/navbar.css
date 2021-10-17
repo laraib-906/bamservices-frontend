@@ -1,5 +1,5 @@
 .navbar {
-    background: #ffcb04 !important;
+    background: var(--orangeGolden) !important;
     color: black;
 }
 

@@ -8,6 +8,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+  --orangeGolden: #fc9b0f;
+  --white: #ffffff
+}
 
 html {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -17,7 +21,7 @@ html {
     font-size: 14px;
   }
   body {
-    background-color: #ffffff !important;
+    background-color: var(--white) !important;
   }
   
   h3,
@@ -103,7 +107,7 @@ html {
     text-decoration: none;
   }
   .theme-bg-1 {
-    background-color: #ffcb04;
+    background-color: var(--orangeGolden);
   }
   .theme-bg-2 {
     background-color: #444;

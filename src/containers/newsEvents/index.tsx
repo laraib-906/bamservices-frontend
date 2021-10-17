@@ -27,7 +27,7 @@ const NewsEvents = () => {
   return (
     <div>
       <Banner bannerType="banner" bannerImage={bannerImage} />
-      <div className="page">
+      {/* <div className="page">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -74,7 +74,7 @@ const NewsEvents = () => {
               ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
