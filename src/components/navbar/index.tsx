@@ -1,7 +1,7 @@
 import useRouter from "../../hooks/useRouter";
 import { IRouters } from "../../types/routes";
 import "./navbar.css";
-
+import DownloadDialog  from '../navBarDialog/index'
 interface Props {
   routes: IRouters[];
 }
@@ -44,6 +44,7 @@ const Navbar = ({ routes }: Props) => {
                   </a>
                 </li>
               ))}
+              <DownloadDialog/>
               <li className="nav-item">
                 <a
                   href="/#"
@@ -61,6 +62,7 @@ const Navbar = ({ routes }: Props) => {
         </div>
       </div>
     </nav>
+
   );
 };
 

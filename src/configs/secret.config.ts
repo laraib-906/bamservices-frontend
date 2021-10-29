@@ -1,0 +1,1 @@
+export const pdsDownloadsPassword = 'omerkhalo';

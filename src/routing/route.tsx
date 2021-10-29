@@ -6,6 +6,7 @@ import NewsEvents from "../containers/newsEvents";
 import PartnersShop from "../containers/partnerShop";
 import Contact from "../containers/contact";
 import EventDetails from '../containers/newsEvents/eventsDetails';
+import SecretPdf from "../containers/secretPdf";
 
 export let routerArray: Array<IRouters> = [
     {
@@ -47,19 +48,20 @@ export let routerArray: Array<IRouters> = [
         },
         permission: ['']
     },
-    {
-        id: 4,
-        type: 'Route',
-        name: 'News & Events',
-        route: '/news_events',
-        icon: "",
-        hidden: false,
-        component: NewsEvents,
-        options: {
-            exact: true
-        },
-        permission: ['']
-    },
+    // {
+    //     id: 4,
+    //     type: 'Route',
+    //     name: 'Download pdf',
+    //     route: '/news_events',
+    //     icon: "",
+    //     hidden: false,
+    //     component: NewsEvents,
+    //     options: {
+    //         exact: true
+    //     },
+    //     permission: ['']
+    // },
+    
     {
         id: 4,
         type: 'Route',
@@ -99,6 +101,18 @@ export let routerArray: Array<IRouters> = [
         },
         permission: ['']
     },
+    {
+        id: 7,
+        type: 'Route',
+        name: 'Confidential Data',
+        route: '/secrets',
+        icon : "",
+        hidden: true,
+        component: SecretPdf,
+        options:{
+            exact:true
+        }
+        }
 ];
 
 
