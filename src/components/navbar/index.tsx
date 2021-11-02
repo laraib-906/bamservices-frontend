@@ -51,7 +51,10 @@ const Navbar = ({ routes }: Props) => {
                   className="nav-link p-1"
                   aria-current="page"
                   target="_blank"
-                  onClick={(ev) => { ev.preventDefault(); }}
+                  onClick={(ev) => { 
+                    ev.preventDefault(); 
+                    router.push('/login');
+                  }}
                 >
                   <i className="fa fa-user"></i>
                   <span>my ayapa</span>

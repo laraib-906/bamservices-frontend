@@ -36,7 +36,9 @@ function App(props: Props) {
   return (
     <div className="App">
       <Header routes={routes} user={props.userData} />
-      <Switch>{routes.map((item, index) => mapRouteToJSX(item, index))}</Switch>
+      <div style={{ minHeight: 'calc(100vh - 267px)', overflow: 'auto' }}>
+        <Switch>{routes.map((item, index) => mapRouteToJSX(item, index))}</Switch>
+      </div>
       <Footer/>
     </div>
   );

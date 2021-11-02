@@ -1,0 +1,24 @@
+.text-color {
+    color: var(--orangeGolden) !important;
+}
+
+#login .container #login-row #login-column #login-box {
+  width: 400px;
+  height: 320px;
+
+}
+
+.passwordContainer {
+    position: relative;
+}
+
+.eyeContainer {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.eyes {
+    cursor: pointer;
+    font-size: 18px;
+}

@@ -22,6 +22,7 @@ const DownloadDialog = () => {
                     href="/#"
                     className="nav-link p-1"
                     aria-current="page"
+                  onClick={(ev) => { ev.preventDefault(); }}
                 >Download PDF
                 </a>
             </li>

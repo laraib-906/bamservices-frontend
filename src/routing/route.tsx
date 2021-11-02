@@ -2,15 +2,42 @@ import { IRouters } from "../types/routes";
 import Home from "../containers/home";
 import Services from "../containers/services";
 import Partners from "../containers/partner";
-import NewsEvents from "../containers/newsEvents";
 import PartnersShop from "../containers/partnerShop";
 import Contact from "../containers/contact";
 import EventDetails from '../containers/newsEvents/eventsDetails';
 import SecretPdf from "../containers/secretPdf";
+import Login from "../components/login";
+import Signup from "../components/signup";
 
 export let routerArray: Array<IRouters> = [
     {
         id: 1,
+        type: 'Route',
+        name: 'Login',
+        route: '/login',
+        icon: "",
+        hidden: true,
+        component: Login,
+        options: {
+            exact: true
+        },
+        permission: ['']
+    },
+    {
+        id: 2,
+        type: 'Route',
+        name: 'Signup',
+        route: '/signup',
+        icon: "",
+        hidden: true,
+        component: Signup,
+        options: {
+            exact: true
+        },
+        permission: ['']
+    },
+    {
+        id: 3,
         type: 'Route',
         name: 'Home',
         route: '/',
@@ -23,7 +50,7 @@ export let routerArray: Array<IRouters> = [
         permission: ['']
     },
     {
-        id: 2,
+        id: 4,
         type: 'Route',
         name: 'Services',
         route: '/services',
@@ -36,7 +63,7 @@ export let routerArray: Array<IRouters> = [
         permission: ['']
     },
     {
-        id: 3,
+        id: 5,
         type: 'Route',
         name: 'Partners',
         route: '/partners',
@@ -48,22 +75,8 @@ export let routerArray: Array<IRouters> = [
         },
         permission: ['']
     },
-    // {
-    //     id: 4,
-    //     type: 'Route',
-    //     name: 'Download pdf',
-    //     route: '/news_events',
-    //     icon: "",
-    //     hidden: false,
-    //     component: NewsEvents,
-    //     options: {
-    //         exact: true
-    //     },
-    //     permission: ['']
-    // },
-    
     {
-        id: 4,
+        id: 7,
         type: 'Route',
         name: 'News & Events',
         route: '/news_events/:id',
@@ -76,7 +89,7 @@ export let routerArray: Array<IRouters> = [
         permission: ['']
     },
     {
-        id: 5,
+        id: 8,
         type: 'Route',
         name: 'Partner Shop',
         route: '/partners_shop',
@@ -89,7 +102,7 @@ export let routerArray: Array<IRouters> = [
         permission: ['']
     },
     {
-        id: 6,
+        id: 9,
         type: 'Route',
         name: 'Contact Us',
         route: '/contact',
