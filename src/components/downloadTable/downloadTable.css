@@ -1,0 +1,27 @@
+.download-btn{
+    background-color: var(--darkgreen);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+.download-btn:hover{
+    background-color:var(--lightgreen);
+}
+.download-Icon{
+    margin-right: 5px;
+}
+.download-container{
+    background-color: var(--lightGrey);
+}.download-container{
+    background-color: var(--lightGrey);
+}
+.delete-btn{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.delete-btn:hover{
+    color: var(--red);
+
+}

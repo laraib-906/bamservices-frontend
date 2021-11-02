@@ -10,7 +10,11 @@
 }
 :root {
   --orangeGolden: #fc9b0f;
-  --white: #ffffff
+  --white: #ffffff;
+  --red: #ff0000;
+  --lightGrey:#D3D3D3;
+  --darkgreen:#00A300;
+  --lightgreen:#00D100;
 }
 
 html {
