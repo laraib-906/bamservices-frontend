@@ -4,13 +4,16 @@ import { Provider } from 'react-redux';
 import { ToastProvider } from 'react-toast-notifications';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import { ToastContainer } from "react-toastify-redux";
+import 'react-toastify/dist/ReactToastify.css';
 
 import './index.css';
 import App from './components/app/App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/store';
+import configureStore from './redux/store';
 import { HashRouter } from 'react-router-dom';
 
+const store = configureStore();
 
 ReactDOM.render(
 
@@ -19,6 +22,7 @@ ReactDOM.render(
           <ToastProvider>
               <HashRouter>
                   <App />
+                <ToastContainer />
               </HashRouter>
           </ToastProvider>
       </Provider>
