@@ -1,10 +1,10 @@
-import config from '../config';
+import config from './config';
 export const AppName = 'BamServices';
 
 const BASEURL = config.BASE_URL;
 
 export const APIURLs = {
-	authAPI: `${BASEURL}/session`,
+	authAPI: `${BASEURL}/user`,
 
 };
 

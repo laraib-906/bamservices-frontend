@@ -1,4 +1,4 @@
 export const AppName = 'BamServices';
 export default {
-  BASE_URL: process.env.REACT_APP_BASE_URL,
+  BASE_URL: 'http://localhost:9000/api/v1/',
 }

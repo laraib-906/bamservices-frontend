@@ -2,6 +2,7 @@ import { SyntheticEvent } from "react";
 import { createBrowserHistory } from 'history';
 import Cookies from 'universal-cookie';
 
+
 // const TOKEN_KEY = btoa('_secret_text');
 const TOKEN_KEY = '_secret_text';
 
@@ -22,12 +23,18 @@ function getHeaders(contentType?: string) {
 
     return headers;
 }
+function handleAuthorization(header: any) {
+    if (!(header['Authorization'])) {
+        // let history = createBrowserHistory();
+        // history.push('login', null);
+    }
+}
 // TODO: Keeping this in Global helper for now.
 export async function _fetch(url: string, method: API_METHOD = 'GET', body?: any, contentType?: string, checkAuthToken: boolean = true) {
     const cookies = new Cookies();
 
     const headers = getHeaders(contentType);
-    checkAuthToken
+    checkAuthToken && handleAuthorization(headers)
 
     return fetch(url, {
         headers,
@@ -80,3 +87,8 @@ export function objToQuery(obj: any) {
 export function stopEventPropagation(event: SyntheticEvent) {
     event.stopPropagation();
 }
+
+export function currencyFormatter(amount: number | bigint, currency = "USD", locale = "en-EN") {
+    return new Intl.NumberFormat(locale, { style: "currency", currency, minimumFractionDigits: 0 }).format(amount);
+}
+

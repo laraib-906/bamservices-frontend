@@ -1,5 +1,5 @@
 import useRouter from "../../hooks/useRouter";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./login.css";
 
@@ -16,20 +16,9 @@ const Login = () => {
     console.log(username, password);
   }
 
-  const openEye = () => {
-    setPasswordType("password");
-  };
-
-  const closeEye = () => {
-    setPasswordType("text");
-  };
-
-  useEffect(() => console.log(passwordType), [passwordType]);
-
   return (
-    <div className="loginContainer">
+    <div className="loginContainer mb-5 mt-5">
       <div id="login">
-        <h3 className="text-center text-white pt-5">Login form</h3>
         <div className="container">
           <div
             id="login-row"
@@ -38,10 +27,10 @@ const Login = () => {
             <div id="login-column" className="col-md-6">
               <div id="login-box" className="col-md-12">
                 <form id="login-form" className="form" action="" method="post">
-                  <h3 className="text-center text-color">Login</h3>
+                  <h2 className="text-center text-color">Login</h2>
                   <div className="form-group">
                     <label htmlFor="username" className="text-color">
-                      <h3>Username:</h3>
+                      <h3>Username *</h3>
                     </label>
                     <br />
                     <input
@@ -56,18 +45,18 @@ const Login = () => {
                   <br />
                   <div className="form-group">
                     <label htmlFor="password" className="text-color">
-                      <h3>Password:</h3>
+                      <h3>Password *</h3>
                     </label>
                     <br />
                     <div className="passwordContainer">
                       <span className="eyeContainer">
                         {passwordType === "text" && (
-                          <FaEye className="eyes" onClick={openEye}>
+                          <FaEye className="eyes" onClick={() => setPasswordType('password')}>
                             AiFillEye
                           </FaEye>
                         )}
                         {passwordType === "password" && (
-                          <FaEyeSlash className="eyes" onClick={closeEye}>
+                          <FaEyeSlash className="eyes" onClick={() => setPasswordType('text')}>
                             AiFillEyeInvisible
                           </FaEyeSlash>
                         )}
@@ -98,9 +87,9 @@ const Login = () => {
                     <br />
                     <input
                       type="button"
-                      name="submit"
+                      name="Login"
                       className="btn btn-warning btn-md"
-                      value="submit"
+                      value="Login"
                       onClick={login}
                     />
                   </div>
