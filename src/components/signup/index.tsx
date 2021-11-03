@@ -29,7 +29,7 @@ const Signup = () => {
     };
 
     signup(register)
-      .then((res) => {
+      .then(() => {
         dispatch(success("Succesfully created User"));
         router.push('/login')
       })

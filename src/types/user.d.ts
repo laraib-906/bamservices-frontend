@@ -1,10 +1,8 @@
 import { IAuthUserGroup } from './auth';
 
 export interface IUser {
-    ID: string;
-    UserName: string;
-    StartDate: string;
-    EndDate: string;
-    IsActiveUser: number;
-    groups: Array<IAuthUserGroup>
+    id: string;
+    email: string;
+    firstName: string;
+    lastName: string;
 }

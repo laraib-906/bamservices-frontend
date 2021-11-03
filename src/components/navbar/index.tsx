@@ -1,19 +1,30 @@
 import useRouter from "../../hooks/useRouter";
 import { IRouters } from "../../types/routes";
 import "./navbar.css";
-import DownloadDialog  from '../navBarDialog/index'
+import DownloadDialog from "../navBarDialog/index";
+import { useDispatch, useSelector } from "react-redux";
+import { session } from "../../services/session.service";
+import { logoutUserAction } from "../../redux/actions/user";
 interface Props {
   routes: IRouters[];
 }
 
 const Navbar = ({ routes }: Props) => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const navRoutes = routes.filter((item) => !item.hidden);
+  const user = useSelector((state: any) => state.users.user);
 
   const handleRouter = (ev: any, routeItem: IRouters) => {
     ev.preventDefault();
     router.push(routeItem.route as string);
   };
+
+  const logout = (ev: any) => {
+    ev.preventDefault();
+    session.removeTokenCookie();
+    dispatch(logoutUserAction({}));
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,28 +55,57 @@ const Navbar = ({ routes }: Props) => {
                   </a>
                 </li>
               ))}
-              <DownloadDialog/>
-              <li className="nav-item">
-                <a
-                  href="/#"
-                  className="nav-link p-1"
-                  aria-current="page"
-                  target="_blank"
-                  onClick={(ev) => { 
-                    ev.preventDefault(); 
-                    router.push('/login');
-                  }}
-                >
-                  <i className="fa fa-user"></i>
-                  <span>my ayapa</span>
-                </a>
-              </li>
+              <DownloadDialog />
+              {!user.firstName && !user.lastName ? (
+                <li className="nav-item">
+                  <a
+                    href="/#"
+                    className="nav-link p-1"
+                    aria-current="page"
+                    target="_blank"
+                    onClick={(ev) => {
+                      ev.preventDefault();
+                      router.push("/login");
+                    }}
+                  >
+                    <i className="fa fa-user"></i>
+                    <span>MY AYAPA</span>
+                  </a>
+                </li>
+              ) : (
+                <div className="dropdown">
+                  <button
+                    className="btn nav-link dropdown-toggle"
+                    style={{ padding: '3px' }}
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {`${user.firstName} ${user.lastName}`}
+                  </button>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    <li>
+                      <a className="dropdown-item" href="/#">
+                        Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" onClick={(ev) => logout(ev)} href="/#">
+                        Logout
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </ul>
           </div>
         </div>
       </div>
     </nav>
-
   );
 };
 

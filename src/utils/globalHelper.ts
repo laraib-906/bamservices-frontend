@@ -9,7 +9,7 @@ const TOKEN_KEY = '_secret_text';
 
 type API_METHOD = 'POST' | 'GET' | 'PATCH' | 'PUT' | 'UPDATE' | 'DELETE';
 
-function getHeaders(contentType?: string) {
+export function getHeaders(contentType?: string) {
     // TODO: Move get token to a service
     const cookies = new Cookies();
     let tokenData = cookies.get(TOKEN_KEY);
@@ -18,7 +18,7 @@ function getHeaders(contentType?: string) {
         'content-type': contentType ?? 'application/json',
     }
     if (tokenData) {
-        headers['Authorization'] = `${tokenData}`;
+        headers['Authorization'] = `Bearer ${tokenData}`;
     }
 
     return headers;

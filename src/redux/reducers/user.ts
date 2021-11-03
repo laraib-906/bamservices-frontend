@@ -2,14 +2,11 @@ import { LOGIN_USER, LOGOUT_USER } from '../actionTypes/user'
 
 const defaultState: object = {
     user: {
-        ID: '',
-        Username: '',
-        groups: [
-            {
-                GroupName: '',
-                GroupId: ''
-            }
-        ],
+        id: "",
+        accessToken: "",
+        email: "",
+        firstName: "",
+        lastName: ""
     }
 };
 

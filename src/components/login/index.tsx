@@ -2,18 +2,40 @@ import useRouter from "../../hooks/useRouter";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./login.css";
+import { useDispatch } from "react-redux";
+import { login } from "../../api/auth";
+import { error, success } from "react-toastify-redux";
+import { session } from "../../services/session.service";
+import { loginUserAction } from "../../redux/actions/user";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
 
-  function login() {
+  function loginUser() {
     if (!username && !password) {
       return;
     }
-    console.log(username, password);
+    const requestPayload = {
+        email: username,
+        password
+    };
+
+    login(requestPayload)
+    .then((res) => {
+      session.setTokenCookie(res.accessToken);
+      delete res.accessToken;
+      dispatch(loginUserAction(res));
+      dispatch(success("Succesfully User logged in"));
+      router.push('/');
+    })
+    .catch((err) => {
+      dispatch(error(err.message))
+    });
+
   }
 
   return (
@@ -90,7 +112,7 @@ const Login = () => {
                       name="Login"
                       className="btn btn-warning btn-md"
                       value="Login"
-                      onClick={login}
+                      onClick={loginUser}
                     />
                   </div>
                   <div id="register-link" className="text-right">

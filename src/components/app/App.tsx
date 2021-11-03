@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer"
 import { routerArray } from "../../../src/routing/route";
 import { Route, Switch, Redirect, Link } from "react-router-dom";
 import { IRouters } from "../../types/routes";
 import { IUser } from "../../types/user";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { hot } from "react-hot-loader";
+import Cookies from "universal-cookie";
+import { me } from "../../api/auth";
+import { loginUserAction } from "../../redux/actions/user";
 
 interface Props {
   userData: IUser;
 }
 
 function App(props: Props) {
+
+  const cookies = new Cookies();
+  const dispatch = useDispatch();
   
   const routes: IRouters[] = routerArray;
+  const user = useSelector((state: any) => state.users.user);
 
   const mapRouteToJSX = (routeItem: any, index: number) => {
     if (routeItem.type === "Route") {
@@ -32,6 +39,17 @@ function App(props: Props) {
       return <Link key={index} to={routeItem.route} />;
     }
   };
+
+  useEffect(() => {
+    const TOKEN_KEY = '_secret_text';
+    if (cookies.get(TOKEN_KEY)) {
+      me()
+        .then((res) => {
+          dispatch(loginUserAction(res));
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [])
 
   return (
     <div className="App">
