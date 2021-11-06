@@ -23,8 +23,7 @@ const DownloadTable = (props: Props) => {
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
-                    <tbody>{props.fileUpload ? <tr className="text-center">
-                        <th scope="row"><input type='checkbox' className="mt-2" /></th>
+                    <tbody>{props.fileUpload ? <tr className="text-center"><th scope="row"><input type='checkbox' className="mt-2" /></th>
                         <td>{props.fileName}</td>
                         <td className="ms-auto"><button type="button" className="delete-btn"><FaRegTrashAlt /></button></td>
                     </tr> : " "}</tbody>

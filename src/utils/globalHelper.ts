@@ -60,9 +60,8 @@ export async function _fetch(url: string, method: API_METHOD = 'GET', body?: any
         });
 }
 
-
-export function _fetchStream(url: string, method: API_METHOD = 'GET', body?: any, contentType?: string) {
-    const headers = getHeaders(contentType);
+export function _fetchStream(url: string, method: API_METHOD = 'GET', body?: any, header?: any) {
+    const headers = getHeaders(header);
 
     return fetch(url, {
         headers,
