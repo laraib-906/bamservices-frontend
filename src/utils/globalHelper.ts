@@ -39,8 +39,8 @@ export function getSteamHeaders() {
 
 function handleAuthorization(header: any) {
     if (!(header['Authorization'])) {
-        let history = createBrowserHistory();
-        history.push('login', null);
+        // let history = createBrowserHistory();
+        // history.push('login', null);
     }
 }
 // TODO: Keeping this in Global helper for now.
@@ -61,11 +61,11 @@ export async function _fetch(url: string, method: API_METHOD = 'GET', body?: any
         if (res.ok) {
             return json.data;
         } else {
-            if (res.status === 401 && json?.data?.Unauthorized === true) {
-                cookies.remove(TOKEN_KEY);
-                let history = createBrowserHistory();
-                history.push('login', null);
-            }
+            // if (res.status === 401 && json?.data?.Unauthorized === true) {
+            //     cookies.remove(TOKEN_KEY);
+            //     let history = createBrowserHistory();
+            //     history.push('/login', null);
+            // }
             return Promise.reject(json);
         }
     })
@@ -89,13 +89,13 @@ export function _fetchStream(url: string, method: API_METHOD = 'GET', body?: any
         const json = await res.json();
 
         if (res.ok) {
-            return json.data;
+            return json;
         } else {
-            if (res.status === 401 && json?.data?.Unauthorized === true) {
-                cookies.remove(TOKEN_KEY);
-                let history = createBrowserHistory();
-                history.push('login', null);
-            }
+            // if (res.status === 401 && json?.data?.Unauthorized === true) {
+            //     cookies.remove(TOKEN_KEY);
+            //     let history = createBrowserHistory();
+            //     history.push('/login', null);
+            // }
             return Promise.reject(json);
         }
     })
