@@ -7,32 +7,24 @@ import {UploadFile} from '../../api/file';
 import './secretPdf.css';
 const SecretPdf = () => {
 
-    const [file, setFile] = useState([]);
-
-    // const fileArray:any = [];
-
+    const [file, setFile] = useState();
     const [fileName, setFileName] = useState('');
-
     const [uploadName, setUploadName] = useState('');
-
     const [isfileUp, setisFileUp] = useState(false);
-
     const [isfileUpload, setIsFileUpload] = useState(false);
     
 
     const Change = (e: any) => {
-        setFile(e.target.files);
+        setFile(e.target.files[0]);
         setFileName(e.target.files[0].name);
-        // fileArray.push(e.target.files)
-        // console.log(fileArray)
         setisFileUp(true);
     }
-    const Upload = () => {
+    const Upload = (event: any) => {
+        event.preventDefault();
         setUploadName(fileName);
         setIsFileUpload(true);
         let data = new FormData();
-        // console.log(fileArray)
-        data.append('file', file[0])
+        data.append('file', file as any)
         UploadFile(data)
             .then((res)=>{
                 console.log(res)
@@ -43,15 +35,13 @@ const SecretPdf = () => {
     }
     const removeUpload = () => {
         setisFileUp(false);
-        // setFile(file)
-        // choosedFile.current.files = "";
     }
 
     return (
         <div>
             <div className="container bg-secondary bg-opacity-10 mt-5 mb-5">
                 <h1 className="h4 text-center">Upload File</h1>
-                <form className="border" onSubmit={Upload} >
+                <form className="border" onSubmit={(ev) => Upload(ev)} >
                     <div className="form-group">
                         <div>
                             {isfileUp ?

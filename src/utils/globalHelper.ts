@@ -23,10 +23,24 @@ export function getHeaders(contentType?: string) {
 
     return headers;
 }
+
+export function getSteamHeaders() {
+    // TODO: Move get token to a service
+    const cookies = new Cookies();
+    let tokenData = cookies.get(TOKEN_KEY);
+
+    let headers: any = {}
+    if (tokenData) {
+        headers['Authorization'] = `Bearer ${tokenData}`;
+    }
+
+    return headers;
+}
+
 function handleAuthorization(header: any) {
     if (!(header['Authorization'])) {
-        // let history = createBrowserHistory();
-        // history.push('login', null);
+        let history = createBrowserHistory();
+        history.push('login', null);
     }
 }
 // TODO: Keeping this in Global helper for now.
@@ -60,19 +74,34 @@ export async function _fetch(url: string, method: API_METHOD = 'GET', body?: any
         });
 }
 
-export function _fetchStream(url: string, method: API_METHOD = 'GET', body?: any, header?: any) {
-    const headers = getHeaders(header);
+export function _fetchStream(url: string, method: API_METHOD = 'GET', body?: any, checkAuthToken: boolean = true) {
+    const cookies = new Cookies();
+
+    const headers = getSteamHeaders();
+    checkAuthToken && handleAuthorization(headers)
 
     return fetch(url, {
         headers,
         body,
         method
+    }).then(async res => {
+
+        const json = await res.json();
+
+        if (res.ok) {
+            return json.data;
+        } else {
+            if (res.status === 401 && json?.data?.Unauthorized === true) {
+                cookies.remove(TOKEN_KEY);
+                let history = createBrowserHistory();
+                history.push('login', null);
+            }
+            return Promise.reject(json);
+        }
     })
-        .then(response => response.blob())
-        .then(blob => blob)
         .catch(function (err) {
             return Promise.reject(err);
-        });
+        });   
 }
 
 
