@@ -70,6 +70,7 @@ const SecretPdf = () => {
                     <div>
                       <FaFileUpload className="fs-1" />
                     </div>
+                    <br/>
                     Drag and drop a PDF file or select file
                   </h5>
                 </div>
