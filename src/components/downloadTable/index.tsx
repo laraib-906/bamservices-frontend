@@ -6,6 +6,7 @@ import { error, success } from "react-toastify-redux";
 import "./downloadTable.css";
 import { addFile, removeFile } from "../../redux/actions/file";
 import { IFile } from "../../types/file";
+const fileDownload = require('js-file-download');
 
 const DownloadTable = () => {
   const files = useSelector((state: any) => state.files.files);
@@ -44,6 +45,7 @@ const DownloadTable = () => {
     downloadFile(payload)
       .then((res) => {
         console.log(res);
+        fileDownload(res, payload.name);
         dispatch(success("File Downloaded Successfully"));
       })
       .catch((err) => {
@@ -53,12 +55,6 @@ const DownloadTable = () => {
 
   return (
     <div>
-      <div className="container d-flex flex-row flex-wrap ">
-        <button type="button" className="ms-auto download-btn p-2">
-          <FaDownload className="download-Icon" />
-          Download
-        </button>
-      </div>
       <div className="download-container container mb-5">
         <table className="table">
           <thead>
