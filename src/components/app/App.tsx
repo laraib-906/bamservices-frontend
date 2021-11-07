@@ -21,7 +21,7 @@ function App(props: Props) {
   const dispatch = useDispatch();
   
   const routes: IRouters[] = routerArray;
-  const user = useSelector((state: any) => state.users.user);
+  // const user = useSelector((state: any) => state.users.user);
 
   const mapRouteToJSX = (routeItem: any, index: number) => {
     if (routeItem.type === "Route") {

@@ -19,5 +19,5 @@ export async function deletFiles(id: string) {
 
 export async function downloadFile(payload: any) {
     
-    return _fetch(`${config.file}/download`, "POST", payload, undefined, true);
+    return _fetch(`${config.file}/download`, "POST", JSON.stringify(payload), undefined, true);
 }

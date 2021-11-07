@@ -1,4 +1,4 @@
-import { _fetch, objToQuery } from "../utils/globalHelper";
+import { _fetch } from "../utils/globalHelper";
 import { APIURLs as config } from "../apiConfig";
 
 export async function login(requestPayload: any): Promise<any> {
