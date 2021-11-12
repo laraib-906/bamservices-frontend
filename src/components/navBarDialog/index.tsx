@@ -1,14 +1,23 @@
 import { getPdfSecretPassword } from '../../services/security.service';
 import React, { useState } from 'react'
 import useRouter from '../../hooks/useRouter';
+import { useDispatch, useSelector } from 'react-redux';
+import { warning } from 'react-toastify-redux';
 // import './downloadDialog.css'
 
 const DownloadDialog = () => {
 
+    const dispatch = useDispatch();
     const router = useRouter();
     const [password, setPassword] = useState('');
+    const user = useSelector((state: any) => state.users.user);
 
     const gotoPdfDownloadPage = () => {
+        if(!user.email) {
+            dispatch(warning("Please login to continue."))
+            setPassword('');
+            return;
+        }
         if(password === getPdfSecretPassword()) {
             router.push('/secrets')
         }
