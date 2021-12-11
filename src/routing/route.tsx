@@ -117,10 +117,10 @@ export let routerArray: Array<IRouters> = [
     {
         id: 7,
         type: 'Route',
-        name: 'Confidential Data',
+        name: 'Download PDF',
         route: '/secrets',
         icon : "",
-        hidden: true,
+        hidden: false,
         component: SecretPdf,
         options:{
             exact:true

@@ -1,11 +1,10 @@
 .text-color {
-    color: var(--orangeGolden) !important;
+    color: var(--base-theme-color) !important;
 }
 
 #login .container #login-row #login-column #login-box {
-  width: 400px;
-  height: 320px;
-
+    width: 400px;
+    height: 320px;
 }
 
 .passwordContainer {

@@ -10,6 +10,7 @@ import { hot } from "react-hot-loader";
 import Cookies from "universal-cookie";
 import { me } from "../../api/auth";
 import { loginUserAction } from "../../redux/actions/user";
+import NotFound404 from "../../components/notFound404";
 
 interface Props {
   userData: IUser;
@@ -55,7 +56,10 @@ function App(props: Props) {
     <div className="App">
       <Header routes={routes} user={props.userData} />
       <div style={{ minHeight: 'calc(100vh - 267px)', overflow: 'auto' }}>
-        <Switch>{routes.map((item, index) => mapRouteToJSX(item, index))}</Switch>
+        <Switch>
+          {routes.map((item, index) => mapRouteToJSX(item, index))}
+          <Route component={NotFound404} />
+        </Switch>
       </div>
       <Footer/>
     </div>

@@ -135,7 +135,7 @@ const Contact = () => {
                 ></textarea>
               </div>
               <div className="col-lg-9">
-                <div className="group">
+                {/* <div className="group">
                   <div
                     className="g-recaptcha"
                     data-sitekey="6LeiyeUZAAAAAGwrdwZ_bLGj8I8s3yEkLGd2j0rC"
@@ -178,7 +178,7 @@ const Contact = () => {
                     data-error="Please complete the Captcha"
                   />
                   <div className="help-block with-errors"></div>
-                </div>
+                </div> */}
                 <div className="col-md-12" style={{ marginBottom: 10 }}>
                   {" "}
                   <br />* - Mandatory fields{" "}

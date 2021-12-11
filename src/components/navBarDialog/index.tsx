@@ -1,57 +1,109 @@
 import { getPdfSecretPassword } from '../../services/security.service';
-import React, { useState } from 'react'
+import Modal from 'react-bootstrap/Modal';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import React, { useRef, useState } from 'react'
 import useRouter from '../../hooks/useRouter';
 import { useDispatch, useSelector } from 'react-redux';
-import { warning } from 'react-toastify-redux';
-// import './downloadDialog.css'
+import { warning, error } from 'react-toastify-redux';
+import "./dowloadDialog.css";
 
-const DownloadDialog = () => {
+interface Props {
+    isOpen: boolean;
+    setIsContentVisable: any
+}
+
+const DownloadDialog = ({ isOpen, setIsContentVisable }: Props) => {
 
     const dispatch = useDispatch();
     const router = useRouter();
-    const [password, setPassword] = useState('');
+    const passwordRef: any = useRef(null);
+    const [passwordType, setPasswordType] = useState("password");
+    const [isOpened, setIsOpened] = useState(isOpen);
     const user = useSelector((state: any) => state.users.user);
 
+    const handleClose = () => {
+        setIsOpened(false)
+    };
+
+    const validate = () => {
+        return passwordRef.current.reportValidity();
+    };
+
     const gotoPdfDownloadPage = () => {
-        if(!user.email) {
-            dispatch(warning("Please login to continue."))
-            setPassword('');
+        if (!validate()) {
+            router.push('/')
+            handleClose();
             return;
         }
-        if(password === getPdfSecretPassword()) {
-            router.push('/secrets')
+
+        if (!user.email) {
+            dispatch(warning("Please login to continue."))
+            handleClose();
+            router.push('/')
+            return;
         }
-        setPassword('');
-    } 
+
+        if (passwordRef.current.value === getPdfSecretPassword()) {
+            handleClose();
+            setIsContentVisable(true);
+        }
+        else {
+            dispatch(error("Invalid Password."))
+            router.push('/')
+            handleClose();
+        }
+        passwordRef.current.value = "";
+    }
+
+    const handleKeySubmit = (e: any) => {
+        if (e.key === "Enter") {
+            gotoPdfDownloadPage();
+        }
+    }
 
     return (
         <div>
-            <li className="nav-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <a
-                    href="/#"
-                    className="nav-link p-1"
-                    aria-current="page"
-                  onClick={(ev) => { ev.preventDefault(); }}
-                >Download PDF
-                </a>
-            </li>
-            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="staticBackdropLabel">Password</h5>
-                        </div>
-                        <div className="modal-body">
-                            <h6>Enter password to download the PDF files</h6>
-                            <input value={password} onChange={e => setPassword(e.target.value)}     type="password" />
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={gotoPdfDownloadPage} data-bs-dismiss="modal">Enter</button>
-                        </div>
+            <Modal show={isOpened} onHide={handleClose}>
+                <Modal.Header>
+                    <Modal.Title>Password</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h6>Enter password to download the PDF files: </h6>
+                    <div className="passwordContainerNavDialog">
+                        <span className="eyeContainer">
+                            {passwordType === "text" && (
+                                <FaEye
+                                    className="eyes"
+                                    onClick={() => setPasswordType("password")}
+                                >
+                                    AiFillEye
+                                </FaEye>
+                            )}
+                            {passwordType === "password" && (
+                                <FaEyeSlash
+                                    className="eyes"
+                                    onClick={() => setPasswordType("text")}
+                                >
+                                    AiFillEyeInvisible
+                                </FaEyeSlash>
+                            )}
+                        </span>
+                        <input
+                            ref={passwordRef}
+                            type={passwordType}
+                            onKeyDown={handleKeySubmit}
+                            required
+                        />
                     </div>
-                </div>
-            </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <button type="button" className="btn btn-secondary" onClick={() => {
+                        router.push('/')
+                        handleClose()
+                    }}>Close</button>
+                    <button type="button" className="btn btn-primary" onClick={gotoPdfDownloadPage}>Enter</button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }

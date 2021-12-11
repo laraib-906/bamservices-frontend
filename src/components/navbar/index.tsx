@@ -1,7 +1,6 @@
 import useRouter from "../../hooks/useRouter";
 import { IRouters } from "../../types/routes";
 import "./navbar.css";
-import DownloadDialog from "../navBarDialog/index";
 import { useDispatch, useSelector } from "react-redux";
 import { session } from "../../services/session.service";
 import { logoutUserAction } from "../../redux/actions/user";
@@ -55,7 +54,6 @@ const Navbar = ({ routes }: Props) => {
                   </a>
                 </li>
               ))}
-              <DownloadDialog />
               {!user.firstName && !user.lastName ? (
                 <li className="nav-item">
                   <a
@@ -89,7 +87,7 @@ const Navbar = ({ routes }: Props) => {
                     aria-labelledby="dropdownMenuButton1"
                   >
                     <li>
-                      <a className="dropdown-item" href="/#">
+                      <a className="dropdown-item disable" href="/#">
                         Profile
                       </a>
                     </li>

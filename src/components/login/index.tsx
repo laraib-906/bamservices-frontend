@@ -1,5 +1,5 @@
 import useRouter from "../../hooks/useRouter";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./login.css";
 import { useDispatch } from "react-redux";
@@ -9,33 +9,37 @@ import { session } from "../../services/session.service";
 import { loginUserAction } from "../../redux/actions/user";
 
 const Login = () => {
+  const form: any = useRef(null);
   const dispatch = useDispatch();
   const router = useRouter();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
 
-  function loginUser() {
-    if (!username && !password) {
-      return;
+
+  const validate = () => {
+    return form.current.reportValidity();
+  };
+
+  function submit(event: any) {
+    event.preventDefault();
+
+    if (validate()) {
+      const requestPayload = {
+        email: event.target.username.value,
+        password: event.target.password.value
+      }
+
+      login(requestPayload)
+        .then((res) => {
+          session.setTokenCookie(res.accessToken);
+          delete res.accessToken;
+          dispatch(loginUserAction(res));
+          dispatch(success("Succesfully User logged in"));
+          router.push('/');
+        })
+        .catch((err) => {
+          dispatch(error(err.message))
+        });
     }
-    const requestPayload = {
-        email: username,
-        password
-    };
-
-    login(requestPayload)
-    .then((res) => {
-      session.setTokenCookie(res.accessToken);
-      delete res.accessToken;
-      dispatch(loginUserAction(res));
-      dispatch(success("Succesfully User logged in"));
-      router.push('/');
-    })
-    .catch((err) => {
-      dispatch(error(err.message))
-    });
-
   }
 
   return (
@@ -48,7 +52,7 @@ const Login = () => {
           >
             <div id="login-column" className="col-md-6">
               <div id="login-box" className="col-md-12">
-                <form id="login-form" className="form" action="" method="post">
+                <form id="login-form" ref={form} onSubmit={submit} className="form">
                   <h2 className="text-center text-color">Login</h2>
                   <div className="form-group">
                     <label htmlFor="username" className="text-color">
@@ -56,11 +60,11 @@ const Login = () => {
                     </label>
                     <br />
                     <input
-                      type="text"
+                      type="email"
                       name="username"
                       id="username"
+                      required
                       className="form-control"
-                      onChange={(ev) => setUsername(ev.target.value)}
                     />
                   </div>
                   <br />
@@ -87,8 +91,8 @@ const Login = () => {
                         type={passwordType}
                         name="password"
                         id="password"
+                        required
                         className="form-control"
-                        onChange={(ev) => setPassword(ev.target.value)}
                       />
                     </div>
                   </div>
@@ -108,17 +112,16 @@ const Login = () => {
                     <br />
                     <br />
                     <input
-                      type="button"
+                      type="submit"
                       name="Login"
-                      className="btn btn-warning btn-md"
+                      className="btn btn-info btn-md"
                       value="Login"
-                      onClick={loginUser}
                     />
                   </div>
                   <div id="register-link" className="text-right">
                     <a href="#" className="text-color" onClick={(ev) => {
-                        ev.preventDefault();
-                        router.push('/signup');
+                      ev.preventDefault();
+                      router.push('/signup');
                     }}>
                       <h4 className="text-color">Register here</h4>
                     </a>
