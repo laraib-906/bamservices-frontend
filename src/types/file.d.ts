@@ -1,7 +1,10 @@
 export interface IFile {
-    id: string;
-    kind: string;
-    mimeType: string;
+    fileId: string;
+    metaDataId: string;
     name: string;
+    filename: string;
+    bucket: string;
+    timeCreated: string;
+    downloadLink: string;
     _id: string;
 }

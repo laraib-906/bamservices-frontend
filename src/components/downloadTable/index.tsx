@@ -1,4 +1,4 @@
-import { deletFiles, downloadFile, getFiles } from "../../api/file";
+import { deletFiles, getFiles } from "../../api/file";
 import React, { useEffect } from "react";
 import { FaRegTrashAlt, FaDownload, FaCog } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,7 +6,6 @@ import { error, success } from "react-toastify-redux";
 import "./downloadTable.css";
 import { addFile, removeFile } from "../../redux/actions/file";
 import { IFile } from "../../types/file";
-const fileDownload = require('js-file-download');
 
 const DownloadTable = () => {
   const files = useSelector((state: any) => state.files.files);
@@ -32,21 +31,9 @@ const DownloadTable = () => {
 
   const delFile = (id: string) => {
     deletFiles(id)
-      .then((res) => {
+      .then(() => {
         dispatch(removeFile(id));
         dispatch(success("File Deleted Successfully"));
-      })
-      .catch((err) => {
-        dispatch(error(err.message));
-      });
-  };
-
-  const downloadSelectedFile = (payload: any) => {
-    downloadFile(payload)
-      .then((res) => {
-        console.log(res);
-        fileDownload(res, payload.name);
-        dispatch(success("File Downloaded Successfully"));
       })
       .catch((err) => {
         dispatch(error(err.message));
@@ -85,22 +72,23 @@ const DownloadTable = () => {
                     aria-labelledby="dropdownMenuButton1"
                   >
                     <li className="dropdown-item">
-                      <button
+                      <a
+                        href={file.downloadLink}
                         type="button"
+                        download
                         className="download-action-btn"
-                        onClick={() => downloadSelectedFile(file)}
                       >
-                          Download
+                        Download
                         <FaDownload className="ms-4" />
-                      </button>
+                      </a>
                     </li>
                     <li className="dropdown-item">
                       <button
                         type="button"
                         className="delete-btn"
-                        onClick={() => delFile(file.id)}
+                        onClick={() => delFile(file._id)}
                       >
-                          Delete
+                        Delete
                         <FaRegTrashAlt className="ms-4" />
                       </button>
                     </li>

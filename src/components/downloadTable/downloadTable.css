@@ -23,12 +23,13 @@
 }
 .delete-btn:hover{
     color: var(--red);
-}
+}   
 .download-action-btn{
     border: none;
     cursor: pointer;
     background-color: transparent;
+    color: black !important;
 }
 .download-action-btn:hover{
-    color: rgb(6, 142, 253);
+    color: rgb(29, 145, 247) !important;
 }

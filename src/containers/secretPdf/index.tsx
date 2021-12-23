@@ -24,11 +24,17 @@ const SecretPdf = () => {
   const [isContentVisable, setIsContentVisable] = useState(false);
 
   const Change = (e: any) => {
-    if (e.target.files || e.target.files.length) {
-      setFile(e.target.files[0]);
-      setFileName(e.target.files[0].name);
-      setisFileUp(true);
+    const { files } = e.target;
+
+    if (!files || !files[0]) {
+      return
     }
+
+    setFile(e.target.files[0]);
+    setFileName(e.target.files[0].name);
+    setisFileUp(true);
+
+    e.target.value = "";
   };
   const Upload = (event: any) => {
     setIsLoading(true);

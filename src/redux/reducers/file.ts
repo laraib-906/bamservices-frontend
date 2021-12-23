@@ -14,22 +14,25 @@ export default function filesReducer(state: Files = defaultState, action: any) {
     switch (action.type) {
 
         case ADD_FILE:
-            return { 
+            return {
                 ...state,
                 files: [
                     ...state.files,
                     {
-                        id: action.id,
-                        kind: action.kind,
-                        mimeType: action.mimeType,
+                        fileId: action.fileId,
+                        metaDataId: action.metaDataId,
                         name: action.name,
+                        filename: action.filename,
+                        bucket: action.bucket,
+                        timeCreated: action.timeCreated,
+                        downloadLink: action.downloadLink,
                         _id: action._id
                     }
                 ]
             }
 
         case REMOVE_FILE:
-            const data = state.files.filter((e) => e.id !== action.id)
+            const data = state.files.filter((e) => e._id !== action.id)
             return {
                 ...state,
                 files: data
