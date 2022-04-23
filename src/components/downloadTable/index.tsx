@@ -20,7 +20,7 @@ const DownloadTable = () => {
   const initUI = () => {
     getFiles()
       .then((res) => {
-        res.docs.forEach((data: any) => {
+        res.rows.forEach((data: any) => {
           dispatch(addFile(data));
         });
       })

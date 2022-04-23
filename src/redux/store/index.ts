@@ -8,4 +8,3 @@ export default function configureStore() {
     const store = createStore(reducers, composeEnhancers());
     return store;
 }
-  
