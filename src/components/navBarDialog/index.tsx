@@ -1,4 +1,4 @@
-import { getPdfSecretPassword } from '../../services/security.service';
+
 import Modal from 'react-bootstrap/Modal';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import React, { useRef, useState } from 'react'
@@ -42,8 +42,7 @@ const DownloadDialog = ({ isOpen, setIsContentVisable }: Props) => {
             router.push('/')
             return;
         }
-
-        if (passwordRef.current.value === getPdfSecretPassword()) {
+        if (passwordRef.current.value === process.env.REACT_APP_FILE_SECRET) {
             handleClose();
             setIsContentVisable(true);
         }
