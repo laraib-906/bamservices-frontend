@@ -1,0 +1,19 @@
+.passwordContainerNavDialog {
+    position: relative;
+    width: 50%;
+}
+
+.passwordContainerNavDialog input {
+    width: 100%;
+}
+
+.passwordContainerNavDialog .eyeContainer {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.eyes {
+    cursor: pointer;
+    font-size: 18px;
+}

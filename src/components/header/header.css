@@ -1,0 +1,20 @@
+
+.contact-wrapper {
+  float: right;
+  text-align: right;
+  padding: 10px 0px 10px 0px;
+  color: #777;
+}
+
+.phone {
+  font-size: 22px;
+  color: #333;
+}
+
+@media (max-width: 340px) {
+  .contact-wrapper .phone {
+    font-size: 15px;
+  }
+}
+
+  

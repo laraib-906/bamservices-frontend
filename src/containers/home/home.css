@@ -1,0 +1,10 @@
+.home-right-container {
+    width: 450px;
+    border: 10px solid #f6f5f5;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+}
+
+.home-right-img {
+    width:450px;
+
+}

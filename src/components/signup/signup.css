@@ -1,0 +1,23 @@
+#signup .container {
+    width: 400px;
+    height: 320px;
+}
+
+.text-color {
+    color: var(--base-theme-color) !important;
+}
+
+.passwordContainer {
+    position: relative;
+}
+
+.eyeContainer {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.eyes {
+    cursor: pointer;
+    font-size: 18px;
+}

@@ -1,0 +1,22 @@
+.navbar {
+    background: var(--base-theme-color) !important;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: var(--base-theme-button-text-color) !important;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: var(--base-theme-button-text-hover-color) !important;
+}
+
+.nav-link i {
+    margin-right: 10px;
+}
